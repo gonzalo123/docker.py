@@ -1,0 +1,17 @@
+{
+  "name": "docker.py",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "local": "npm run docker_local_build && npm run freeze",
+    "docker_local_build": "docker build -t $npm_package_name .",
+    "freeze": "docker run -it --rm -v \"$PWD\"/src:/src $npm_package_name python -m pip freeze > requirements.txt",
+
+    "python": "docker run -it --rm -v $PWD/src:/src $npm_package_name:latest",
+    "bash": "docker run -it --rm -v $PWD/src:/src $npm_package_name:latest bash"
+  },
+  "author": "",
+  "license": "MIT"
+}
