@@ -1,17 +1,20 @@
 {
-  "name": "docker.py",
+  "name": "flaskdemo",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "local": "npm run docker_local_build && npm run freeze",
     "docker_local_build": "docker build -t $npm_package_name .",
     "freeze": "docker run -it --rm -v \"$PWD\"/src:/src $npm_package_name python -m pip freeze > requirements.txt",
-
+    "local": "npm run docker_local_build && npm run freeze",
     "python": "docker run -it --rm -v $PWD/src:/src $npm_package_name:latest",
     "bash": "docker run -it --rm -v $PWD/src:/src $npm_package_name:latest bash"
   },
-  "author": "",
+  "author": {
+    "name": "Gonzalo Ayuso",
+    "email": "gonzalo123@gmail.com",
+    "url": "https://gonzalo123.com"
+  },
   "license": "MIT"
 }
